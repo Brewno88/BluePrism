@@ -1,10 +1,10 @@
-// Styles
-import './assets/styles/App.css';
 // Component
 import Header from './components/Header';
 import ScheduleCards from './components/ScheduleCards';
 import ScheduleLog from './components/ScheduleLog';
 import { AppContextProvider } from './store/AppContext';
+// Styles
+import './assets/styles/App.css';
 
 function App() {
   return (
