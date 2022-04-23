@@ -7,24 +7,18 @@ const useReactTable = data => {
       return Object.keys(data[0]).map(key => {
         return {
           Header: key,
-          accessor: key
+          accessor: key,
+          grow: ['serverName'].includes(key)
         };
       });
     }
     return [];
   }, [data]);
 
-  const tableInstance = useTable(
-    {
-      columns,
-      data,
-
-      initialState: {
-        hiddenColumns: ['scheduleId']
-      }
-    },
-    useFlexLayout
-  );
+  const tableInstance = useTable({
+    columns,
+    data
+  });
   return tableInstance;
 };
 

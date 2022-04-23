@@ -8,11 +8,11 @@ import './assets/styles/App.css';
 
 function App() {
   return (
-    <div className="px-4 sm:px-8">
+    <div className="flex flex-col h-screen px-4 m-auto sm:px-8 max-w-7xl">
       <Header />
       {/* Provide context only to main to avoid to re-render entire App */}
       <AppContextProvider>
-        <main className="flex">
+        <main className="flex overflow-hidden">
           <ScheduleCards />
           <ScheduleLog />
         </main>

@@ -11,18 +11,12 @@ const ScheduleCards = () => {
   });
   console.log(data);
   return (
-    <aside className="w-full max-w-xs pr-4">
+    <aside className="w-full max-w-xs pr-4 overflow-auto">
       {isLoading ? (
         <span>Loading</span>
       ) : (
         data.map((card, index) => {
-          return (
-            <ScheduleCard
-              key={card.id}
-              card={card}
-              hasMargin={index && index < data.length - 1}
-            />
-          );
+          return <ScheduleCard key={card.id} card={card} index={index} />;
         })
       )}
     </aside>
