@@ -12,7 +12,6 @@ const ScheduleLog = () => {
 
   // React Query
   const { isLoading, data } = useQuery(
-    // pass selected to query keys array so to update query when it change
     [
       'scheduleLogs',
       {
@@ -52,7 +51,7 @@ const ScheduleLog = () => {
                     // Apply the header cell props
                     <th
                       {...column.getHeaderProps()}
-                      className={`px-2 border-2 border-black bg-slate-100 whitespace-nowrap ${
+                      className={`table-cell bg-teal-300 ${
                         column.grow ? 'w-[1%]' : 'w-[0.00001%]'
                       }`}
                     >
@@ -84,7 +83,7 @@ const ScheduleLog = () => {
                       return (
                         <td
                           {...cell.getCellProps()}
-                          className={`p-2 border-2 border-gray-300 whitespace-nowrap ${
+                          className={`table-cell border-gray-500 ${
                             cell.column.grow ? 'w-[1%] ' : 'w-[0.00001%]'
                           }`}
                         >
