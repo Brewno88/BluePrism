@@ -30,8 +30,11 @@ const ScheduleCard = ({ card, index, refetchCards }) => {
     }
   );
 
-  const handleSelect = useCallback(cardId => {
-    dispatchSelected({ type: SELECT_CARD, payload: cardId });
+  const handleSelect = useCallback(card => {
+    dispatchSelected({
+      type: SELECT_CARD,
+      payload: { id: card.id, name: card.name }
+    });
   }, []);
 
   const handleToggleRetire = useCallback(
@@ -51,10 +54,10 @@ const ScheduleCard = ({ card, index, refetchCards }) => {
   return (
     <div
       className={`card ${index ? 'my-4' : ''} ${
-        selected === card.id ? 'bg-active' : ''
+        selected?.id === card.id ? 'bg-active' : ''
       }`}
       onClick={() => {
-        handleSelect(card.id);
+        handleSelect(card);
       }}
     >
       <h2>{card.name}</h2>

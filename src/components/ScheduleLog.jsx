@@ -20,7 +20,7 @@ const ScheduleLog = () => {
         method: 'GET',
         endpoint: `scheduleLogs`,
         params: {
-          scheduleId: selected
+          scheduleId: selected?.id
         }
       }
     ],
@@ -36,6 +36,9 @@ const ScheduleLog = () => {
 
   return (
     <div className="w-full overflow-auto">
+      <div className="pb-4 ">
+        <h2 className="text-lg font-bold ">{selected.name}</h2>
+      </div>
       {/* apply the table props */}
       <table {...getTableProps()} className="w-full">
         <thead>
