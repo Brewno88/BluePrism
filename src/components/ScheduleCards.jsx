@@ -7,7 +7,7 @@ const ScheduleCards = () => {
   // useStates
   const [show, setShow] = useState('all');
   // React Query
-  const { isLoading, data } = useQuery(
+  const { isLoading, data, refetch } = useQuery(
     [
       'schedules',
       {
@@ -22,7 +22,9 @@ const ScheduleCards = () => {
               }
       }
     ],
-    axiosRequest
+    axiosRequest,
+    // Remove cache if we want to keep the list updated when toggle retire and then switch list
+    { cacheTime: 0 }
   );
 
   const handleShow = useCallback(e => {
@@ -31,8 +33,8 @@ const ScheduleCards = () => {
 
   return (
     <aside className="w-full max-w-xs pr-4 overflow-auto">
-      <div className="flex justify-between mb-4">
-        <span>Show:</span>
+      <div className="sticky top-0 flex justify-between pb-4 bg-white">
+        <span>Show: {data?.length}</span>
         <div>
           <button
             className={`btn ${show === 'all' ? 'bg-active' : ''}`}
@@ -61,7 +63,14 @@ const ScheduleCards = () => {
         <span>Loading</span>
       ) : (
         data.map((card, index) => {
-          return <ScheduleCard key={card.id} card={card} index={index} />;
+          return (
+            <ScheduleCard
+              key={card.id}
+              card={card}
+              index={index}
+              refetchCards={refetch}
+            />
+          );
         })
       )}
     </aside>

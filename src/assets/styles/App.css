@@ -9,8 +9,12 @@
 .btn:active {
   @apply bg-teal-300;
 }
-.btn:hover {
+
+.btn:hover:enabled {
   @apply filter brightness-75;
+}
+.btn:disabled {
+  @apply text-gray-600 bg-gray-200 border-gray-200;
 }
 
 .card {

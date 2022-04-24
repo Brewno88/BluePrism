@@ -4,7 +4,7 @@ import { SELECT_CARD } from '../store/AppReducers';
 import { axiosRequest } from '../helpers/axiosRequest';
 import { useQuery } from 'react-query';
 
-const ScheduleCard = ({ card, index }) => {
+const ScheduleCard = ({ card, index, refetchCards }) => {
   // Context
   const { selected, dispatchSelected } = useContext(AppContext);
 
@@ -23,19 +23,30 @@ const ScheduleCard = ({ card, index }) => {
       }
     ],
     axiosRequest,
-    // Need to set cacheTime to 0 otherwise req will only fire twice for each true/false state
-    { enabled, cacheTime: 0 }
+    {
+      enabled,
+      // Remove cache otherwise req will only fire once for each true/false of "isRetired" state
+      cacheTime: 0
+    }
   );
 
   const handleSelect = useCallback(cardId => {
     dispatchSelected({ type: SELECT_CARD, payload: cardId });
   }, []);
 
-  const handleToggleRetire = useCallback(e => {
-    e.stopPropagation();
-    setIsRetired(state => !state);
-    setEnabled(true);
-  }, []);
+  const handleToggleRetire = useCallback(
+    e => {
+      e.stopPropagation();
+      setIsRetired(state => !state);
+      setEnabled(true);
+      // Update Cards list
+      setTimeout(() => {
+        setEnabled(false);
+        refetchCards();
+      }, 500);
+    },
+    [refetchCards]
+  );
 
   return (
     <div
@@ -52,9 +63,13 @@ const ScheduleCard = ({ card, index }) => {
         <button
           className="btn"
           onClick={handleToggleRetire}
-          disabled={isLoading}
+          disabled={isLoading || enabled}
         >
-          {isLoading ? 'Loading' : isRetired ? 'Un-retire' : 'Retire'}
+          {isLoading || enabled
+            ? 'Loading'
+            : isRetired
+            ? 'Un-retire'
+            : 'Retire'}
         </button>
       </div>
     </div>
