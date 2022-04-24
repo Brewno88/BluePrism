@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { useQuery } from 'react-query';
+import { ArrowDown } from '../assets/icons/ArrowDown';
+import { ArrowUp } from '../assets/icons/ArrowUp';
 import { axiosRequest } from '../helpers/axiosRequest';
 import formatDate from '../helpers/formatDate';
 import useReactTable from '../hooks/useReactTable';
@@ -50,7 +52,7 @@ const ScheduleLog = () => {
                   headerGroup.headers.map(column => (
                     // Apply the header cell props
                     <th
-                      {...column.getHeaderProps()}
+                      {...column.getHeaderProps(column.getSortByToggleProps())}
                       className={`table-cell bg-teal-300 ${
                         column.grow ? 'w-[1%]' : 'w-[0.00001%]'
                       }`}
@@ -59,6 +61,17 @@ const ScheduleLog = () => {
                         // Render the header
                         column.render('Header')
                       }
+                      <span>
+                        {column.isSorted ? (
+                          column.isSortedDesc ? (
+                            <ArrowDown />
+                          ) : (
+                            <ArrowUp />
+                          )
+                        ) : (
+                          ''
+                        )}
+                      </span>
                     </th>
                   ))
                 }

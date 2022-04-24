@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useFlexLayout, useTable } from 'react-table';
+import { useSortBy, useTable } from 'react-table';
 
 const useReactTable = data => {
   const columns = useMemo(() => {
@@ -15,10 +15,13 @@ const useReactTable = data => {
     return [];
   }, [data]);
 
-  const tableInstance = useTable({
-    columns,
-    data
-  });
+  const tableInstance = useTable(
+    {
+      columns,
+      data
+    },
+    useSortBy
+  );
   return tableInstance;
 };
 

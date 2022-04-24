@@ -1,4 +1,9 @@
 @tailwind base;
+
+svg {
+  @apply inline;
+}
+
 @tailwind components;
 
 .btn {
@@ -32,5 +37,9 @@
 .table-cell {
   @apply p-2 border-2 border-black whitespace-nowrap;
 }
+
+/* svg {
+  display: inline;
+} */
 
 @tailwind utilities;
