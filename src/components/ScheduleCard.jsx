@@ -39,9 +39,9 @@ const ScheduleCard = ({ card, index }) => {
 
   return (
     <div
-      className={`border-2 border-black rounded-xl p-2 cursor-pointer hover:shadow-xl ${
-        index ? 'my-4' : ''
-      } ${selected === card.id ? 'bg-slate-400 shadow-lg' : ''}`}
+      className={`card ${index ? 'my-4' : ''} ${
+        selected === card.id ? 'bg-active' : ''
+      }`}
       onClick={() => {
         handleSelect(card.id);
       }}
@@ -50,7 +50,7 @@ const ScheduleCard = ({ card, index }) => {
       <p>{card.description}</p>
       <div className="flex justify-end">
         <button
-          className="px-2 border-2 border-black rounded-md"
+          className="btn"
           onClick={handleToggleRetire}
           disabled={isLoading}
         >
