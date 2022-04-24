@@ -23,8 +23,8 @@ const ScheduleCards = () => {
       }
     ],
     axiosRequest,
-    // Remove cache if we want to keep the list updated when toggle retire and then switch list
-    { cacheTime: 0 }
+    // Reduce cache if we want to keep the list updated when toggle retire and then switch list
+    { cacheTime: 1 }
   );
 
   const handleShow = useCallback(e => {
@@ -32,7 +32,7 @@ const ScheduleCards = () => {
   }, []);
 
   return (
-    <aside className="w-full max-w-xs pr-4 overflow-auto">
+    <aside className="w-full max-w-xs pr-4 overflow-scroll">
       <div className="sticky top-0 flex justify-between pb-4 bg-white">
         <span>Show: {data?.length}</span>
         <div>
