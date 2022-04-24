@@ -32,7 +32,7 @@ const ScheduleCards = () => {
   }, []);
 
   return (
-    <aside className="w-full max-w-xs pr-4 overflow-scroll">
+    <aside className="w-full pb-4 overflow-x-auto overflow-y-hidden md:pr-4 md:overflow-x-hidden md:overflow-y-auto md:max-w-xs max-w-none md:pb-0">
       <div className="sticky top-0 flex justify-between pb-4 bg-white">
         <span>Show: {data?.length}</span>
         <div>
@@ -62,16 +62,18 @@ const ScheduleCards = () => {
       {isLoading ? (
         <span>Loading</span>
       ) : (
-        data.map((card, index) => {
-          return (
-            <ScheduleCard
-              key={card.id}
-              card={card}
-              index={index}
-              refetchCards={refetch}
-            />
-          );
-        })
+        <div className="flex items-stretch pb-2 overflow-x-auto md:flex-col md-pb-0">
+          {data.map((card, index) => {
+            return (
+              <ScheduleCard
+                key={card.id}
+                card={card}
+                index={index}
+                refetchCards={refetch}
+              />
+            );
+          })}
+        </div>
       )}
     </aside>
   );

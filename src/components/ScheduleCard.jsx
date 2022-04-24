@@ -53,16 +53,16 @@ const ScheduleCard = ({ card, index, refetchCards }) => {
 
   return (
     <div
-      className={`card ${index ? 'my-4' : ''} ${
+      className={`card ${index ? 'mx-2 md:my-4' : ''} ${
         selected?.id === card.id ? 'bg-active' : ''
       }`}
       onClick={() => {
         handleSelect(card);
       }}
     >
-      <h2>{card.name}</h2>
+      <h2 className="whitespace-nowrap">{card.name}</h2>
       <p>{card.description}</p>
-      <div className="flex justify-end">
+      <div className="flex items-end justify-end flex-1">
         <button
           className="btn"
           onClick={handleToggleRetire}

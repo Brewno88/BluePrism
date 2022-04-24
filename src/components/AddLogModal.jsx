@@ -47,10 +47,10 @@ const AddLogModal = ({ close, refetchLogs }) => {
 
   return (
     <div
-      className="fixed inset-0 z-10 flex items-center justify-center w-full h-full overflow-y-auto bg-gray-600 bg-opacity-50"
+      className="fixed inset-0 z-10 w-full h-full p-4 overflow-y-auto bg-gray-600 bg-opacity-50 md:flex md:justify-center md:items-center"
       id="my-modal"
     >
-      <div className="z-20 w-full max-w-lg mx-4 cursor-default card">
+      <div className="z-20 w-full max-w-lg cursor-default card">
         <form onSubmit={handleSubmit}>
           {/* Form Header */}
           <div className="flex items-center justify-between form-header ">

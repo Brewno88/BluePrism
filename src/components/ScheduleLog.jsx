@@ -48,11 +48,14 @@ const ScheduleLog = () => {
   return (
     <>
       {addLog && <AddLogModal close={closeModal} refetchLogs={refetch} />}
-      <div className="w-full pl-4 overflow-auto">
-        <div className="flex justify-between pb-4">
+      <div className="w-full pb-4 overflow-auto md:pl-4 md:pb-0">
+        <div className="flex items-start justify-between pb-4 md:items-center">
           <h2 className="text-lg font-bold ">{selected.name}</h2>
-          <button className="flex items-center btn" onClick={handleAddLog}>
-            Add
+          <button
+            className="flex items-center py-2 md:py-0 btn bg-active"
+            onClick={handleAddLog}
+          >
+            <span className="hidden md:inline">Add</span>
             <Add />
           </button>
         </div>

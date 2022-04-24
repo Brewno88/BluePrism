@@ -5,39 +5,36 @@ svg {
 }
 
 @tailwind components;
-
+/* Button */
 .btn {
   @apply px-2 bg-white border-2 border-black rounded-lg;
 }
-
 .btn:focus,
 .btn:active {
   @apply bg-teal-300;
 }
-
 .btn:hover:enabled {
   @apply filter brightness-75;
 }
 .btn:disabled {
   @apply text-gray-600 bg-gray-200 border-gray-200;
 }
-
+/* Card */
 .card {
-  @apply p-2 bg-white border-2 border-black cursor-pointer rounded-xl;
+  @apply flex flex-col p-2 bg-white border-2 border-black cursor-pointer rounded-xl;
 }
-
 .card:hover {
   @apply shadow-xl;
 }
-
+/* Others */
 .bg-active {
   @apply bg-teal-300;
 }
-
+/* Table */
 .table-cell {
   @apply p-2 border-2 border-black whitespace-nowrap;
 }
-
+/* Form */
 .form-label {
   @apply text-sm;
 }
