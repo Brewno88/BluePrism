@@ -38,8 +38,14 @@ svg {
   @apply p-2 border-2 border-black whitespace-nowrap;
 }
 
-/* svg {
-  display: inline;
-} */
+.form-label {
+  @apply text-sm;
+}
+.form-input {
+  @apply p-2 border-2 border-black rounded-lg;
+}
+.form-section {
+  @apply flex flex-col mb-4;
+}
 
 @tailwind utilities;
