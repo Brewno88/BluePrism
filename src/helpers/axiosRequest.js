@@ -5,7 +5,7 @@ export const axiosRequest = async ({ queryKey }) => {
 
   try {
     const response = await axios({
-      url: `http://localhost:3000/${endpoint}`,
+      url: `https://blueprism-server.herokuapp.com/${endpoint}`,
       ...rest
     });
 
