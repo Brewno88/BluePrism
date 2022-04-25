@@ -32,7 +32,7 @@ const ScheduleCards = () => {
   }, []);
   if (isError) return <div>Something's Wrong!</div>;
   return (
-    <aside className="w-full pb-4 overflow-x-auto overflow-y-hidden md:pr-4 md:overflow-x-hidden md:overflow-y-auto md:max-w-xs max-w-none md:pb-0">
+    <aside className="w-full pb-4 overflow-x-auto overflow-y-hidden md:pr-4 md:overflow-x-hidden md:overflow-y-scroll md:max-w-xs max-w-none md:pb-0">
       <div className="sticky top-0 flex justify-between pb-4 bg-white">
         <span>Show: {data?.length}</span>
         <div>

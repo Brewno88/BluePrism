@@ -53,7 +53,7 @@ const ScheduleCard = ({ card, index, refetchCards }) => {
 
   return (
     <div
-      className={`card ${index ? 'mx-2 md:mx-0 md:my-4' : ''} ${
+      className={`card ${index ? 'mx-2 md:mx-0 md:my-4' : 'md:mb-4'} ${
         selected?.id === card.id ? 'bg-active' : ''
       }`}
       onClick={() => {
