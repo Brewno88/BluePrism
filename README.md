@@ -1,7 +1,7 @@
 # ◭ Blue Prism UI Tech Test ◭
 
 # Commit 1.2
-# Commit 2.1
+# Commit 2.2
 # Commit 3.1
 ## Vincenzo Conte
 
